@@ -1,0 +1,134 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define F            first
+#define S            second
+#define PB           push_back
+#define MP           make_pair
+#define Fin          freopen("input.txt","r",stdin)
+#define Fout         freopen("output.txt","w",stdout)
+#define Precision(a) cout << fixed << setprecision(a)
+#define FasterIO     ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define INF9 2147483647
+#define INF18 9223372036854775806
+#define ll long long
+#define ull unsigned long long
+#define pp pair<int,int>
+#define ppp pair<int,pp >
+#define mapii map<int,int>
+#define mapll map<ll,ll>
+#define mapsi map<string,int>
+#define mapss map<string,string>
+
+char Uplowch(char ch)
+{
+    if(ch >= 'A' &&  ch <= 'Z')
+        ch += 32;
+    return ch;
+}
+char Lowupch(char ch)
+{
+    if(ch >= 'a' &&  ch <= 'z')
+        ch -= 32;
+    return ch;
+}
+
+int ara[222222];
+int main()
+{
+    int t,n,m,a,b,i,j,x,y,mx,mn,sum,k=0;
+    scanf("%d",&t);
+
+    while(t--)
+    {
+        scanf("%d",&n);
+        mx = -9;
+        int flag = 0;
+        //for(i=0;i<=200001;i++)ara[i] = 0;
+        memset(ara,0,sizeof(ara));
+
+        for(i=1; i<=n; i++)
+        {
+            scanf("%d",&a);
+
+            mx = max(a,mx);
+
+            ara[a]++;
+
+            if(ara[a]>2)
+                flag = 1;
+        }
+
+        if(flag==1||ara[mx]>1)
+        {
+            printf("NO\n");
+        }
+        else
+        {
+
+            printf("YES\n");
+            flag = 0;
+            for(i=0; i<=mx; i++)
+            {
+                if(ara[i]>0)
+                {
+                    if(flag==0)
+                    {
+                        printf("%d",i);
+                        flag = 1;
+                        ara[i]-=1;
+                    }
+                    else
+                    {
+                        printf(" %d",i);
+                        ara[i]-=1;
+                    }
+                }
+            }
+
+            for(i=mx;i>=1;i--)
+            {
+                if(ara[i]>0&&flag==0)
+                {
+                    printf("%d",i);
+                    flag = 1;
+                }
+                else if(ara[i]>0)
+                {
+                    printf(" %d",i);
+                }
+
+            }
+        }
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    return 0;
+}
